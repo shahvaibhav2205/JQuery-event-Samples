@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Vaibhav shah contact">
+<meta name="author" content="Vaibhav shah">
+<link rel="stylesheet" type="text/css" href="css/firststyle.css">
+<title>JQuery Examples</title>
+</head>
+<body>
+<nav>
+<a href="index.html">Home</a> | 
+<a href="Projects.html">Projects</a> |
+<a href="Skills.html">Skills</a> |
+<a href="Education.html">Education</a> |
+<a href="Contact_Me.html">Contact Me</a> |
+<a href="jquery_assg2.html">JQuery</a> |
+<a href="Q2.html">2nd Question</a> |
+<a href="shelf.html">Shopping Cart</a>
+
+</nav>
+  <header>
+    <h1 class="mainheader">JQuery Events of Assignment 2</h1>
+  </header>
+<table style="border: dashed;width:100%;text-align:center;">
+	<tr>
+		<td class="td_class" colspan="2"><img height="100" width="120" id="p1" src="images/hide_gift.jpg"></td>
+		<td ><img height="100" width="120" id="p3" src="images/show_gift.jpg" style="display:none;"></td>
+		<td><img height="120" align="right" width="100" id="p4_1" src="images/fast.jpg"></td>
+		<td><img height="120" align="left" width="100" id="p4_2" src="images/slow.jpg"></td>
+	</tr>
+	<tr>	
+		<td><button id="but1">Click to hide Surprise</button></td>
+		<td><button id="but2" >Click to show Surprise</button></td>
+		<td><button id="but3">Toggle Click </button></td>
+		<td><button id="but4" >Double Click to fade them out</button></td>
+		<td><button id="but5" >Double Click to fade them in</button></td>
+	</tr>
+	<tr >
+		<td style="height:125px;"><img  width="100" id="p6" src="images/girl.jpg"></td>
+		<td><div id="p7_1" style="width:100%;height:30px;background-color:blue;"></div>
+			<div id="p7_2" style="width:100%;height:30px;background-color:blue;"></div>
+			<div id="p7_3" style="width:100%;height:30px;background-color:blue;"></div>
+			<div id="p7_4" style="width:100%;height:30px;background-color:blue;"></div></td>
+		<td><div id="p8_1" class="p8" style="width:20%;height:30px;background-color:#98bf21;"></div>
+			<div id="p8_2" class="p8" style="width:20%;height:30px;background-color:#98bf21;"></div>
+			<div id="p8_3" class="p8" style="width:20%;height:30px;background-color:#98bf21;"></div>
+			<div id="p8_4" class="p8" style="width:20%;height:30px;background-color:#98bf21;"></td>
+		<td><img id="img1" src="images/funny.jpg"></td>
+		<td><div id="p9" style="background:#98bf21;height:100px;width:200px;position:absolute;font-family:'Calibri';">Apple</div></td>
+	</tr>
+	<tr>	
+		<td><button id="but6">Double Click Toggle Fade </button></td>
+		<td><button id="but7">Double Click Multiple FadeTo </button></td>
+		<td><text id="call_b">Mouse Enter and Mouse leave animation on above elements hovered..</text><br/><br/></td>
+		<td><textarea id="input" placeholder="type anything here :)"></textarea></td>
+		<td><textarea id="input1" placeholder="Key down to start and up to stop :)"></textarea></td>
+	</tr>
+	
+
+</table>
+
+
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.animate-colors.js"></script>
+<script>
+$(document).ready(function(){
+		
+	$("button").addClass("btn");
+$("#but1").click(function(){
+	$("img:first").hide();
+	});
+$("#but2").click(function(){
+	$("img:first").show();
+	});
+$("#but3").click(function(){
+	$("#p3").toggle();
+	});
+$("#but4").dblclick(function(){
+	$("#p4_1").fadeOut();
+	$("#p4_2").fadeOut(2000);
+});
+$("#but5").dblclick(function(){
+	$("#p4_1").fadeIn();
+	$("#p4_2").fadeIn(2000);
+});
+$("#but6").dblclick(function(){
+	$("#p6").fadeToggle();
+});
+$("button:last").dblclick(function(){
+	$("#p7_1").fadeTo(500,0.2);
+	$("#p7_2").fadeTo(500,0.4);
+	$("#p7_3").fadeTo(500,0.6);
+	$("#p7_4").fadeTo(500,0.8);
+});
+$(".p8").mouseenter(function(){
+	$(this).animate({
+		width:'80%'
+	});
+});
+$(".p8").mouseleave(function(){
+	$(this).animate({
+		width:'15%'
+	},function(){
+		$("#call_b").text(function(i,origText){
+			
+			return origText + " !";
+		});
+	});
+});
+
+$("#input").keypress(function(){
+	$("#img1").fadeOut().fadeIn().fadeTo(500,0.8);
+});
+$("#input1").keydown(function(){
+    $("#p9")
+    .animate({backgroundColor: '#FF4719'}, "slow")
+    .animate({fontSize: '5em'}, "slow")
+    .animate({color:'rgba(255, 255, 255, 1)'},"slow")
+    .animate({backgroundColor:'lightblue'},"slow")
+    .animate({fontSize: '3em'}, "slow")
+    .animate({backgroundColor:'lightgreen'},"slow");   
+    
+});
+$("#input1").keyup(function(){
+    $("#p9").stop();
+});
+$("img[src$='l.jpg']").css("border-width","1px").css("border-style","dashed");
+$("#p6").addClass("img-rounded");
+});
+</script>
+<footer >
+  Posted by: Vaibhav Shah 
+  
+</footer>
+</body>
+</html>

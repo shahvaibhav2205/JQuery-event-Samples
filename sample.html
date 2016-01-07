@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+function appendText()
+{
+var add='<tr><td class="th1">jill</td><td ></td><td ></td></tr>';
+$("#myTable").append(add); // Append new elements
+}
+$(document).ready(function(){
+	$(".th1").mouseover(function(){
+		$("text").text("true");
+	});
+	$(".th1").mouseleave(function(){
+		$("text").text("false");
+	});
+	$("body").on("mouseover",".th1",function(){
+		$("text").text("true");
+	});
+	$("body").on("mouseleave",".th1",function(){
+		$("text").text("false");
+	});
+});
+</script>
+</head>
+<body>
+<p>This is a paragraph.</p>
+<table id="myTable" style="width:80%;border-stylr:solid;border-width:1px;color:#0F1F4C;font-family:Calibri;font-size:25px;background-color:#99C2FF;">
+<tr>
+    <td class = "th1">jill</td>
+    <td ></td>		
+    <td ></td>
+  	</tr>
+  	</table>
+<button onclick="appendText()">Append text</button>
+<text>here</text>
+</body>
+</html>	

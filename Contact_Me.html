@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Vaibhav shah contact">
+<meta name="author" content="Vaibhav shah">
+	<title>Contact</title>
+
+
+</head>
+<link rel="stylesheet" type="text/css" href="css/firststyle.css">
+<body background="images/cme.jpg" style="background-repeat: "no repeat";" onload="loading()">
+
+<nav>
+<a href="index.html">Home</a> | 
+<a href="Projects.html">Projects</a> |
+<a href="Skills.html">Skills</a> |
+<a href="Education.html">Education</a> |
+<a href="Contact_Me.html">Contact Me</a> |
+<a href="jquery_assg2.html">JQuery</a> |
+<a href="Q2.html">2nd Question</a> |
+<a href="shelf.html">Shopping Cart</a>
+
+</nav>
+<header>
+    <h1 class="header" >Contact me</h1>
+  </header>
+
+<form>
+<table width="80%" style="font-family:Calibri;font-size:20px;">
+<tr>
+	<td>Your Name: </td>
+	<td><input id="input" class="name_text1" type="text" name="name" required placeholder="type name.." ></td>
+	<td ><text id="text1"></text></td>
+</tr>
+<tr >
+	<td style="height: 40px ;">Your email : </td>
+	<td><input id="input" class="email_text1" type="email" placeholder="enter email address.." required></td>
+	<td><text id="text2"></text></td>
+</tr>
+<tr>
+	<td>Your age : </td>
+	<td><input id="input" class="age_text1" type="number" Placeholder="enter age" ></td>
+	<td><text id="text3"></text></td>
+</tr>
+<tr>
+	<td>Your gender : </td>
+	<td><input type="radio" name="sex" value="male" checked>Male
+	<input type="radio" name="sex" value="female">Female</td>	
+	<td rowspan="2"></td>
+</tr>
+<tr>
+	<td>Your photo : </td>
+	<td><div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	
+	<img id="drag1" src="images/boy.gif" draggable="true" ondragstart="drag(event)" width="175" height="120">
+	<img id="drag2" src="images/girl.jpg" draggable="true" ondragstart="drag(event)" width="175" height="120">
+	</td>	
+</tr>
+<tr>
+	<td>Your purpose for contact : </td>
+	<td><input type="checkbox" id="check1" name="interest" value="Job opportunity" >Job opportunity
+		<input type="checkbox" id="check2" name="interest" value="Interview call" >Interview call<br>
+		<input type="checkbox" id="check3" name="interest" value="Profile comments" >Profile comments
+		<input type="checkbox" id="check4" name="interest" value="Other" >Other
+	</td>
+	<td><text id="text4"></text></td>	
+</tr>
+<tr>
+	<td>My areas of specifications which applead you :</td>
+	<td><input type="checkbox" id="chk1" name="areas" value="Java" >Java
+		<input type="checkbox" id="chk2" name="areas" value="PHP" >PHP
+		<input type="checkbox" id="chk3" name="areas" value="JQuery" >JQuery
+		<input type="checkbox" id="chk4" name="areas" value="Networking" >Networking<br>
+		<input type="checkbox" id="chk5" name="areas" value="Data Structures" >Data Structures
+		<input type="checkbox" id="chk6" name="areas" value="Other" >Other
+	</td>
+	<td><text id="text5"></text></td>	
+</tr>
+ </table>
+<br>
+<center>
+&nbsp&nbsp&nbsp<input onclick="clickCounter()" type="submit" name="submit" >
+&nbsp&nbsp&nbsp<input type="reset" name="reset">
+</center>
+
+<br>
+<div id="result"></div>
+<br>
+
+
+<button onclick="getLocation()">Click to get your location</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;	
+}
+</script>
+
+</form>
+
+ <footer >
+  Posted by: Vaibhav Shah 
+  
+</footer>
+<script>
+function loading()	{
+	document.getElementById("result").innerHTML = "You have asked " + sessionStorage.clickcount + " question(s) in this session.";
+}
+function clickCounter() {
+    if(typeof(Storage) !== "undefined") {
+        if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+        } else {
+            sessionStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = "You have asked " + sessionStorage.clickcount + " question(s) in this session.";
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+function drag1(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.animate-colors.js"></script>
+<script >
+$(document).ready(function(){
+		$("button").addClass("btn");
+		$("input[name$='t']").addClass("btn");
+	$(".name_text1").blur(function(){
+ 		$("#text1").text("Hi "+$(".name_text1").val()+"!!");
+    });
+    $(".age_text1").change(function(){
+ 		$("#text3").text("Howdy "+$(".age_text1").val()+" years oldy :P");
+    });
+	$(".email_text1").focus(function(){
+ 		$("#text2").text("Yes i will need that email ID to contact you..");
+    });
+	$("#check1").focus(function(){
+		$("#text4").text("Thank you for your time..");
+	});
+	$("#check2").focus(function(){
+		$("#text4").text("Thank you for my consideration..");
+	});
+	$("#check3").focus(function(){
+		$("#text4").text("Would love to hear your comments.. :)");
+	});
+	$("#check4").focus(function(){
+		$("#text4").text("	");
+	});
+	$("#chk1").change(function(){
+		if($('#chk1').prop('checked')){
+		$("#text5").text(function(i,origText){
+			return origText+$("#chk1").val()+"  ";
+		});
+	}	
+		if($('#chk1').prop('checked') == false){
+		$("#text5").text(function(i,origText){
+			return origText.replace($("#chk1").val(),'');
+		});
+	}	
+	});
+	$("#chk2").change(function(){
+		if($('#chk2').prop('checked')){
+		$("#text5").text(function(i,origText){
+			return origText+$("#chk2").val()+"  ";
+		});
+	}
+	if($('#chk2').prop('checked') == false){
+		$("#text5").text(function(i,origText){
+			return origText.replace($("#chk2").val(),'');
+		});
+	}	
+	});
+	$("#chk3").change(function(){
+		if($('#chk3').prop('checked')){
+		$("#text5").text(function(i,origText){
+			return origText+$("#chk3").val()+"  ";
+		});
+	}
+	if($('#chk3').prop('checked') == false){
+		$("#text5").text(function(i,origText){
+			return origText.replace($("#chk3").val(),'');
+		});
+	}	
+	});
+	$("#chk4").change(function(){
+		if($('#chk4').prop('checked')){
+		$("#text5").text(function(i,origText){
+			return origText+$("#chk4").val()+"  ";
+		});
+	}
+	if($('#chk4').prop('checked') == false){
+		$("#text5").text(function(i,origText){
+			return origText.replace($("#chk4").val(),'');
+		});
+	}	
+	});
+	$("#chk5").change(function(){
+		if($('#chk5').prop('checked')){
+		$("#text5").text(function(i,origText){
+			return origText+$("#chk5").val()+"  ";
+		});
+	}
+	if($('#chk5').prop('checked') == false){
+		$("#text5").text(function(i,origText){
+			return origText.replace($("#chk5").val(),'');
+		});
+	}	
+	});
+	$("#chk6").change(function(){
+		if($('#chk6').prop('checked')){
+		$("#text5").text(function(i,origText){
+			return origText+$("#chk6").val()+"  ";
+		});
+	}
+	if($('#chk6').prop('checked') == false){
+		$("#text5").text(function(i,origText){
+			return origText.replace($("#chk6").val(),'');
+		});
+	}	
+	});	
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+#container { width:80%; margin-left: auto; margin-right: auto;position: static; }
+
+.cart{
+	color: black;
+	left: 50%;
+	margin-left: 400px;
+	top:25px;	
+	background-repeat: no-repeat;
+	width: 45px;
+	height: 24px;
+	line-height: 24px;
+	position: fixed;
+}
+
+.cart .simlpeCart_quantity{
+	margin-left: 35px;
+}
+
+
+.simpleCart_shelfItem{
+	display: inline-block;
+	padding: 30px;
+	position: relative;
+}
+
+.simpleCart_shelfItem img{
+	width: 220px;
+	height: 56px;
+}
+
+.simpleCart_shelfItem input{
+	width: 36px;
+	display: inline-block;
+}
+
+.simpleCart_shelfItem .item_price{
+	position: absolute;
+	right: 	30px;
+	margin-top: 2px;
+	text-align: right;
+	width: 30px;
+	display: inline-block;
+}
+
+.simplecart_items table{
+	width: auto;
+	margin-top: 60px;
+	margin-left: auto;
+	margin-right:auto;
+	text-align: center;
+}
+.simpleCart_items table .item-decrement a, .simpleCart_items table .item-increment a{
+	display: block;
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+}
+
+.simpleCart_items table td, .simpleCart_items table th{
+	margin:0;
+	padding: 1px 30px;
+
+} 
+
+.simpleCart_items table .item-decrement,
+.simpleCart_items table .item-increment,
+.simpleCart_items table .item-quantity,
+.simpleCart_items table .item-remove{
+	margin: 0;
+	padding: 0;
+}
+
+.simpleCart_items table .item-decrement a{
+	background-image: url(../images/minus.jpg);
+}
+
+.simpleCart_items table .item-increment a{
+	background-image: url(../images/plus.jpg);
+}
+
+.cartTotal .simpleCart_total{
+	position: absolute;
+	width:100px;
+	left: 50%;
+	margin-left: 200px;
+	margin-top: 30px;
+}
+.cartTotal .simpleCart_total:before{
+	margin-right: 10px;
+	font-weight: bold;
+	content: "Total:";
+}
+
+.item_thumb	img{
+	width: 50px;
+	height: 40px;
+}

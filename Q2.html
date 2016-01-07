@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Vaibhav shah contact">
+<meta name="author" content="Vaibhav shah">
+<link rel="stylesheet" type="text/css" href="css/firststyle.css">
+	<title>Question 2</title>
+</head>
+<body>
+<nav>
+<a href="index.html">Home</a> | 
+<a href="Projects.html">Projects</a> |
+<a href="Skills.html">Skills</a> |
+<a href="Education.html">Education</a> |
+<a href="Contact_Me.html">Contact Me</a> |
+<a href="jquery_assg2.html">JQuery</a> |
+<a href="Q2.html">2nd Question</a> |
+<a href="shelf.html">Shopping Cart</a>
+
+</nav>
+<center><br><br>
+<table id="myTable" style="width:80%;border-stylr:solid;border-width:1px;color:#0F1F4C;font-family:Calibri;font-size:25px;background-color:#99C2FF;">
+  <tr>
+    <th class="th1">Firstname</th>
+    <th class="th1">Lastname</th>		
+    <th class="th1">Points</th>
+    <th class="th1">Delete Action</th>
+  </tr>
+  <tr>
+    <td class="th1">Jill</td>
+    <td class="th1">Smith</td>		
+    <td class="th1">50</td>
+    <td class="th1"><button class="btn del">Delete Row</button></td>
+  </tr>
+  <tr>
+    <td class="th1">Eve</td>
+    <td class="th1">Jackson</td>		
+    <td class="th1">94</td>
+    <td class="th1"><button class="btn del">Delete Row</button></td>
+  </tr>
+  <tr>
+    <td class="th1">John</td>
+    <td class="th1">Doe</td>		
+    <td class="th1">80</td>
+    <td class="th1"><button class="btn del">Delete Row</button></td>
+  </tr>
+</table>
+
+
+<text id="text" ></text>
+<text id="text1" ></text>
+<br><br><button id="but" class="btn" 	onclick="appendText()">Add row</button>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.animate-colors.js"></script>
+<script>
+$(document).ready(function(){
+	var flag,flag1;
+
+$(document).keydown(function(e){
+	 // alert(e.keyCode);
+	 if(e.keyCode == 18)
+	flag=true;
+	// $("#text").text(flag);
+	
+	// .css("background-color","white");
+
+});
+$(document).keyup(function(){
+	// alert("key up");
+	flag=false;
+	// $("#text").text(flag);
+	$(".th1").css("background-color","#99C2FF");
+});
+$(".th1").mouseover(over);
+$(".th1").mouseleave(leave);
+$("body").on("mouseover",".th1",over);
+$("body").on("mouseleave",".th1",leave);
+
+$('body').on('click','.del',function() {
+    // alert("aa");
+  $(this).closest( 'tr').remove();
+  return false;
+});
+
+function over(){
+	// alert("key up");
+	if(flag == true){
+	// $("#text1").text("accepted");
+	// flag1 = this.class();
+	// alert("flag1: "+flag1);
+	$(this).css("background-color","white");
+}
+}
+function leave(){
+	// alert("key up");
+	// flag=false;
+	// $("#text1").text("not accepted");
+	// flag1 = false;
+	$(this).css("background-color","#99C2FF");
+}
+});
+</script>
+<script>
+function appendText()
+{
+var add='<tr><td class="th1"><textarea class="form-control"></textarea></td><td class="th1"><textarea class="form-control"></textarea></td><td class="th1"><textarea class="form-control"></textarea></td><td class="th1"><button class="btn del">Delete Row</button></td></tr>';
+$("#myTable").append(add); // Append new elements
+}
+</script>
+
+</center>	
+<br>
+<footer >
+  Posted by: Vaibhav Shah 
+  
+</footer>
+</body>
+</html>
